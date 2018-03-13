@@ -4,12 +4,10 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
-/**
- * Created by Rahil on 21-Feb-18.
- */
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -24,6 +22,14 @@ public class User {
 
     @OneToMany(targetEntity =Rating.class,mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Rating> ratings;
+
+    public User() {
+    }
+
+    public User(String msisdn, String message) {
+        this.msisdn = msisdn;
+        this.message = message;
+    }
 
     public Long getId() {
         return id;

@@ -5,9 +5,7 @@ import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 
-/**
- * Created by Rahil on 21-Feb-18.
- */
+
 
 @Entity
 @Table(name = "points")

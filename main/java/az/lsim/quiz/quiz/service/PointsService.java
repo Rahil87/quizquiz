@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by Rahil on 21-Feb-18.
- */
 @Service
 public class PointsService{
 

@@ -9,9 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by Rahil on 21-Feb-18.
- */
+
+
 @Service
 public class UserService {
 
@@ -33,16 +32,18 @@ public class UserService {
 
 
     public String deleteUser(Long id) {
-        if(userRepository.existsById(id))   {
-            userRepository.deleteById(id);
-            return "{'USER DELETED SUCCESSFULY!!!'}";   }
+        if(userRepository.exists(id))   {
+            userRepository.delete(id);
+            return "{'USER DELETED SUCCESSFULY!!!'}"+"----"+id;   }
 
         else return "USER DOESN'T EXIST!!!";
     }
 
     public User saveUser(User user){
+      return userRepository.save(user);}
 
-        return  userRepository.save(user);
-    }
+
+
+
 
 }
