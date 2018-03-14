@@ -1,7 +1,9 @@
 package az.lsim.quiz.quiz.controller;
 
+import az.lsim.quiz.quiz.model.Questions;
 import az.lsim.quiz.quiz.model.User;
 
+import az.lsim.quiz.quiz.service.QuestionServices;
 import az.lsim.quiz.quiz.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
-
+import java.util.TreeMap;
 
 
 @RestController
@@ -18,9 +20,12 @@ import java.util.List;
 public class UserController {
 
     private  static  final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+
       private UserService userService;
 
-       @Autowired
+
+
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -42,5 +47,7 @@ public class UserController {
          userService.saveUser(user);
         return " success";
     }
+
+
 
 }

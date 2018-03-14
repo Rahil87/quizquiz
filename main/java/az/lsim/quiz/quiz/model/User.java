@@ -2,6 +2,7 @@ package az.lsim.quiz.quiz.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -14,7 +15,8 @@ public class User {
     private String msisdn;
     private String message;
     private String answerOfUser;
-    private Date insertDate;
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false)
+    private Calendar createdDate;
     private Date stoppedDate;
 
     @OneToMany(targetEntity =Points.class,mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
@@ -63,13 +65,12 @@ public class User {
         this.answerOfUser = answerOfUser;
     }
 
-
-    public Date getInsertDate() {
-        return insertDate;
+    public Calendar getCreatedDate() {
+        return createdDate;
     }
 
-    public void setInsertDate(Date insertDate) {
-        this.insertDate = insertDate;
+    public void setCreatedDate(Calendar createdDate) {
+        this.createdDate = createdDate;
     }
 
     public Date getStoppedDate() {
